@@ -5,7 +5,7 @@
 Install the package via Composer:
 
 ```bash
-composer require seclock/stretch
+composer require jayi/stretch
 ```
 
 Publish the configuration file:
@@ -41,6 +41,10 @@ Stretch supports multiple Elasticsearch connections. The default connection is c
         'cloud_id' => env('ELASTICSEARCH_CLOUD_ID'),
         'api_key' => env('ELASTICSEARCH_API_KEY'),
         'ssl_verification' => env('ELASTICSEARCH_SSL_VERIFICATION', true),
+
+        // Optional HTTP client timeouts in seconds (null = client defaults)
+        'connect_timeout' => env('ELASTICSEARCH_CONNECT_TIMEOUT'),
+        'timeout' => env('ELASTICSEARCH_TIMEOUT'),
     ],
 ],
 ```
@@ -75,6 +79,15 @@ To disable SSL verification (e.g., for local development):
 
 ```env
 ELASTICSEARCH_SSL_VERIFICATION=false
+```
+
+### Timeouts
+
+HTTP client timeouts are set per connection, in seconds. When omitted or `null`, the Elasticsearch client's own defaults apply. `connect_timeout` bounds establishing the TCP connection; `timeout` bounds the whole request.
+
+```env
+ELASTICSEARCH_CONNECT_TIMEOUT=2
+ELASTICSEARCH_TIMEOUT=10
 ```
 
 ## Multiple Connections
@@ -138,8 +151,6 @@ app('elasticsearch.manager')->disconnect();
 'query' => [
     'default_size' => 10,       // Default number of results per query
     'max_size' => 10000,        // Maximum results per query (Elasticsearch limit)
-    'timeout' => env('ELASTICSEARCH_TIMEOUT', '10s'),
-    'allow_partial_search_results' => true,
 ],
 ```
 
@@ -159,7 +170,7 @@ The `size()` method on the query builder is automatically capped at `max_size`.
 ```php
 'logging' => [
     'enabled' => env('STRETCH_LOGGING_ENABLED', env('APP_DEBUG', false)),
-    'channel' => env('STRETCH_LOG_CHANNEL', 'default'),
+    'channel' => env('STRETCH_LOG_CHANNEL'),   // null = the app's default channel
     'log_queries' => env('STRETCH_LOG_QUERIES', env('APP_DEBUG', false)),
     'log_slow_queries' => env('STRETCH_LOG_SLOW_QUERIES', true),
     'slow_query_threshold' => env('STRETCH_SLOW_QUERY_THRESHOLD', 1000), // milliseconds
@@ -169,7 +180,7 @@ The `size()` method on the query builder is automatically capped at `max_size`.
 | Variable | Default | Description |
 |----------|---------|-------------|
 | `STRETCH_LOGGING_ENABLED` | `APP_DEBUG` | Enable/disable all Stretch logging |
-| `STRETCH_LOG_CHANNEL` | `default` | Laravel log channel to use |
+| `STRETCH_LOG_CHANNEL` | `null` | Laravel log channel to use (`null` uses the app's default channel) |
 | `STRETCH_LOG_QUERIES` | `APP_DEBUG` | Log all executed queries |
 | `STRETCH_LOG_SLOW_QUERIES` | `true` | Log queries exceeding the threshold |
 | `STRETCH_SLOW_QUERY_THRESHOLD` | `1000` | Slow query threshold in milliseconds |
@@ -180,7 +191,7 @@ See the [Caching](caching.md) documentation for full details.
 
 ```php
 'cache' => [
-    'enabled' => env('STRETCH_CACHE_ENABLED', true),
+    'enabled' => env('STRETCH_CACHE_ENABLED', false),
     'ttl' => env('STRETCH_CACHE_TTL', [300, 600]),
     'prefix' => env('STRETCH_CACHE_PREFIX', 'stretch:'),
     'store' => env('STRETCH_CACHE_STORE', env('CACHE_STORE', 'database')),
@@ -198,13 +209,14 @@ See the [Caching](caching.md) documentation for full details.
 | `ELASTICSEARCH_CLOUD_ID` | `null` | Elastic Cloud ID |
 | `ELASTICSEARCH_API_KEY` | `null` | API key authentication |
 | `ELASTICSEARCH_SSL_VERIFICATION` | `true` | Verify SSL certificates |
-| `ELASTICSEARCH_TIMEOUT` | `10s` | Query timeout |
+| `ELASTICSEARCH_CONNECT_TIMEOUT` | `null` | TCP connect timeout in seconds (client default when null) |
+| `ELASTICSEARCH_TIMEOUT` | `null` | Whole-request timeout in seconds (client default when null) |
 | `STRETCH_LOGGING_ENABLED` | `APP_DEBUG` | Enable logging |
-| `STRETCH_LOG_CHANNEL` | `default` | Log channel |
+| `STRETCH_LOG_CHANNEL` | `null` | Log channel (`null` = app default) |
 | `STRETCH_LOG_QUERIES` | `APP_DEBUG` | Log all queries |
 | `STRETCH_LOG_SLOW_QUERIES` | `true` | Log slow queries |
 | `STRETCH_SLOW_QUERY_THRESHOLD` | `1000` | Slow query threshold (ms) |
-| `STRETCH_CACHE_ENABLED` | `true` | Enable query caching |
-| `STRETCH_CACHE_TTL` | `[300, 600]` | Cache TTL [fresh, stale] |
+| `STRETCH_CACHE_ENABLED` | `false` | Cache every query by default |
+| `STRETCH_CACHE_TTL` | `[300, 600]` | Cache TTL [fresh, stale]; env accepts `"300,600"` or `"300"` |
 | `STRETCH_CACHE_PREFIX` | `stretch:` | Cache key prefix |
-| `STRETCH_CACHE_STORE` | `CACHE_STORE` | Laravel cache store |
+| `STRETCH_CACHE_STORE` | `CACHE_STORE`, then `database` | Laravel cache store |

@@ -11,9 +11,11 @@ public function getCacheKey(): string
     $hash = sha1(serialize($sorted));
     $indexes = $this->getIndexes()->implode(':');
 
-    return $this->getCachePrefix().$this->getConnectionName().':'.$indexes.$hash;
+    return '{'.$this->getCachePrefix().$this->getConnectionName().':'.$indexes.$hash.'}';
 }
 ```
+
+- The whole key is wrapped in a Redis cluster hash tag (`{...}`) so `flexible()` can MGET the key and its `illuminate:cache:flexible:created:` twin from one cluster slot. Don't drop the braces — clustered Redis rejects the cross-slot read.
 
 - Scoped by connection AND index: identical queries on different connections/indexes get distinct keys — no cross-connection collisions.
 - `build()` must stay pure (no side effects) so key generation is safe to call independently of `execute()`.

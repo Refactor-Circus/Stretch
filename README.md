@@ -7,7 +7,7 @@ A fluent, intuitive Laravel package for building Elasticsearch queries with comp
 Install the package via Composer:
 
 ```bash
-composer require seclock/stretch
+composer require jayi/stretch
 ```
 
 Publish the configuration file:
@@ -78,10 +78,6 @@ $results = Stretch::index('orders')
 ```bash
 composer test
 ```
-
-## Contributing
-
-Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 
 ## Security
 

@@ -14,8 +14,6 @@ env:
     - DB_CONNECTION="testing"
     - ELASTICSEARCH_CLOUD_ID=
     - ELASTICSEARCH_API_KEY=
-migrations:
-    - tests/database/migrations
 workbench:
     install: false
     discovers:

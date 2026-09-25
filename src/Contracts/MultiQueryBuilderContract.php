@@ -51,4 +51,14 @@ interface MultiQueryBuilderContract
      * @return array|null The last executed msearch parameters, or null if never executed
      */
     public function getLastQuery(): ?array;
+
+    /**
+     * Get the name of the connection this builder is bound to.
+     *
+     * Falls back to the default connection name when no connection was
+     * explicitly selected. The name also namespaces the response cache key.
+     *
+     * @return string The connection name
+     */
+    public function getConnectionName(): string;
 }

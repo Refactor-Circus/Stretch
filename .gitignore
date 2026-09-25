@@ -2,13 +2,6 @@
 composer.lock
 /vendor
 
-# Frontend Assets
-/node_modules
-
-# Logs
-npm-debug.log
-yarn-error.log
-
 # Caches
 .phpunit.cache
 .phpunit.result.cache
@@ -16,7 +9,6 @@ yarn-error.log
 
 # IDE Helper
 _ide_helper.php
-_ide_helper_models.php
 .phpstorm.meta.php
 
 # Editors
@@ -24,33 +16,19 @@ _ide_helper_models.php
 /.fleet
 /.vscode
 /.claude
+.phpactor.json
+*.code-workspace
 
-# Misc
+# Local overrides of the committed .dist files
 phpunit.xml
 testbench.yaml
-/coverage
 
-/.phpunit.cache
-/public/build
-/public/hot
-/public/storage
-/public/vendor
-/storage/*.key
+# Misc
+/coverage
 .env
 .env.*
 !.env.example
-.phpactor.json
-Homestead.json
-Homestead.yaml
 auth.json
 
-/caddy
-
-# franken
-frankenphp
-frankenphp-worker.php
-
-# macOS crap
+# macOS
 .DS_Store
-cghooks.lock
-*.code-workspace

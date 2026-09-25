@@ -106,10 +106,13 @@ $results = Stretch::multi()
 
 Cache keys are automatically generated based on:
 - The cache prefix
+- The connection name the builder is bound to
 - The index name(s) involved in the query
 - A SHA1 hash of the serialized, sorted query structure
 
-This ensures different queries always produce different cache keys, and identical queries always hit the same cache entry.
+This ensures different queries always produce different cache keys, identical queries always hit the same cache entry, and the same query against two connections never shares an entry.
+
+The whole key is wrapped in a Redis cluster hash tag (`{...}`) so `flexible()` can read the entry and its freshness marker from a single cluster slot.
 
 ## Default Configuration
 
@@ -117,20 +120,21 @@ Set default cache behavior in `config/stretch.php`:
 
 ```php
 'cache' => [
-    'enabled' => env('STRETCH_CACHE_ENABLED', true),
-    'ttl' => env('STRETCH_CACHE_TTL', [300, 600]),     // [fresh, stale] in seconds
+    'enabled' => env('STRETCH_CACHE_ENABLED', false),
+    'ttl' => env('STRETCH_CACHE_TTL', [300, 600]),     // [fresh, stale] in seconds, or "300,600" from env
     'prefix' => env('STRETCH_CACHE_PREFIX', 'stretch:'),
     'store' => env('STRETCH_CACHE_STORE', env('CACHE_STORE', 'database')),
 ],
 ```
 
-Per-query settings (e.g., `setCacheTtl()`, `setCachePrefix()`, `setCacheStore()`) override these defaults. The `->cache()` method must still be called on each query to opt in -- the config defaults only control the values, not whether caching is active.
+Per-query settings (e.g., `setCacheTtl()`, `setCachePrefix()`, `setCacheStore()`) override these defaults. When `enabled` is `false` (the default), call `->cache()` on each query to opt in. When `enabled` is `true`, every query is cached without calling `->cache()`; use `->setCacheEnabled(false)` to opt a single query out.
 
 ## Methods Reference
 
 | Method | Description |
 |--------|-------------|
 | `cache()` | Enable caching for this query |
+| `setCacheEnabled(bool $enabled = true)` | Enable or disable caching for this query, overriding the config default |
 | `clearCache()` | Clear existing cache entry before executing |
 | `setCacheTtl(array\|int $ttl)` | Set TTL as `[fresh, stale]` or integer seconds |
 | `setCachePrefix(string $prefix)` | Set custom cache key prefix |

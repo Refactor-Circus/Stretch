@@ -38,6 +38,16 @@ interface QueryBuilderContract
     public function connection(string $name): static;
 
     /**
+     * Get the name of the connection this builder is bound to.
+     *
+     * Falls back to the default connection name when no connection was
+     * explicitly selected. The name also namespaces the response cache key.
+     *
+     * @return string The connection name
+     */
+    public function getConnectionName(): string;
+
+    /**
      * Add a match query for full-text search.
      *
      * @param  string  $field  The field to search

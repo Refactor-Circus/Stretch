@@ -238,8 +238,9 @@ Configuration defaults are in `config/stretch.php` under the `cache` key.
 ### Configuration
 
 The `config/stretch.php` file includes:
-- `connections` - Multi-connection Elasticsearch settings
-- `query` - Default size, max size, timeout
+- `default` - Default connection name
+- `connections` - Multi-connection Elasticsearch settings (hosts, auth, SSL verification, connect/request timeouts)
+- `query` - Default size, max size
 - `aggregations` - Max buckets, default size
-- `logging` - Query logging, slow query threshold
-- `cache` - TTL, prefix, store settings
+- `logging` - Enabled flag, log channel, query logging, slow query threshold
+- `cache` - Enabled-by-default flag, TTL, prefix, store settings
