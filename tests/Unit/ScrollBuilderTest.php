@@ -2,8 +2,8 @@
 
 declare(strict_types=1);
 
-use JayI\Stretch\Builders\ScrollBuilder;
-use JayI\Stretch\Contracts\ClientContract;
+use JayI\Stretch\Domains\Connection\Contracts\ClientContract;
+use JayI\Stretch\Domains\Query\Builders\ScrollBuilder;
 use Mockery as m;
 
 it('opens a scroll, walks batches and clears the context', function () {

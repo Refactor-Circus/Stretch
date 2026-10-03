@@ -3,8 +3,8 @@
 declare(strict_types=1);
 
 use Illuminate\Pagination\LengthAwarePaginator;
-use JayI\Stretch\Builders\ElasticsearchQueryBuilder;
-use JayI\Stretch\Pagination\ElasticPaginator;
+use JayI\Stretch\Domains\Query\Builders\ElasticsearchQueryBuilder;
+use JayI\Stretch\Domains\Query\Support\ElasticPaginator;
 
 it('can create paginator from response via fromResponse', function () {
     $builder = new ElasticsearchQueryBuilder;

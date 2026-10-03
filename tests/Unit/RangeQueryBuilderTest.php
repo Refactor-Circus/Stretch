@@ -2,8 +2,8 @@
 
 declare(strict_types=1);
 
-use JayI\Stretch\Builders\ElasticsearchQueryBuilder;
-use JayI\Stretch\Builders\RangeQueryBuilder;
+use JayI\Stretch\Domains\Query\Builders\ElasticsearchQueryBuilder;
+use JayI\Stretch\Domains\Query\Builders\RangeQueryBuilder;
 
 it('can build a gt range condition', function () {
     $parent = new ElasticsearchQueryBuilder;

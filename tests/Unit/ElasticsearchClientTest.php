@@ -2,8 +2,8 @@
 
 declare(strict_types=1);
 
-use JayI\Stretch\Client\ElasticsearchClient;
-use JayI\Stretch\Contracts\ClientContract;
+use JayI\Stretch\Domains\Connection\Contracts\ClientContract;
+use JayI\Stretch\Domains\Connection\Services\ElasticsearchClient;
 use JayI\Stretch\Exceptions\StretchException;
 
 beforeEach(function () {

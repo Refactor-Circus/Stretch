@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use JayI\Stretch\Builders\ElasticsearchQueryBuilder;
+use JayI\Stretch\Domains\Query\Builders\ElasticsearchQueryBuilder;
 
 it('can build a pure kNN search', function () {
     $builder = new ElasticsearchQueryBuilder;

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use JayI\Stretch\Builders\ElasticsearchQueryBuilder;
+use JayI\Stretch\Domains\Query\Builders\ElasticsearchQueryBuilder;
 
 it('builds a span_near of span_terms', function () {
     $query = (new ElasticsearchQueryBuilder)

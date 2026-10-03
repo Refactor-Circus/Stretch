@@ -4,13 +4,14 @@ declare(strict_types=1);
 
 namespace JayI\Stretch;
 
-use JayI\Stretch\Builders\Concerns\SwitchesConnections;
-use JayI\Stretch\Builders\ElasticsearchQueryBuilder;
-use JayI\Stretch\Builders\MultiQueryBuilder;
-use JayI\Stretch\Builders\ScrollBuilder;
-use JayI\Stretch\Contracts\ClientContract;
-use JayI\Stretch\Contracts\MultiQueryBuilderContract;
-use JayI\Stretch\Contracts\QueryBuilderContract;
+use JayI\Stretch\Domains\Connection\Concerns\SwitchesConnections;
+use JayI\Stretch\Domains\Connection\Contracts\ClientContract;
+use JayI\Stretch\Domains\Connection\Services\ElasticsearchManager;
+use JayI\Stretch\Domains\Query\Builders\ElasticsearchQueryBuilder;
+use JayI\Stretch\Domains\Query\Builders\MultiQueryBuilder;
+use JayI\Stretch\Domains\Query\Builders\ScrollBuilder;
+use JayI\Stretch\Domains\Query\Contracts\MultiQueryBuilderContract;
+use JayI\Stretch\Domains\Query\Contracts\QueryBuilderContract;
 use JayI\Stretch\Exceptions\StretchException;
 
 /**

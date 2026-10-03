@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-use JayI\Stretch\Builders\ElasticsearchQueryBuilder;
-use JayI\Stretch\Builders\MultiQueryBuilder;
-use JayI\Stretch\Contracts\ClientContract;
+use JayI\Stretch\Domains\Connection\Contracts\ClientContract;
+use JayI\Stretch\Domains\Query\Builders\ElasticsearchQueryBuilder;
+use JayI\Stretch\Domains\Query\Builders\MultiQueryBuilder;
 use Mockery as m;
 
 it('can add a query using a callback', function () {

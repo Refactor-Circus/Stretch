@@ -8,7 +8,7 @@ Build a query, execute it, then create a paginator from the response:
 
 ```php
 use JayI\Stretch\Facades\Stretch;
-use JayI\Stretch\Pagination\ElasticPaginator;
+use JayI\Stretch\Domains\Query\Support\ElasticPaginator;
 
 $query = Stretch::index('posts')
     ->match('title', 'Laravel')

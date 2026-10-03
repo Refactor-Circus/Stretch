@@ -4,23 +4,17 @@ declare(strict_types=1);
 
 namespace JayI\Stretch;
 
-use Elastic\Elasticsearch\Client;
-use JayI\Stretch\Builders\ElasticsearchQueryBuilder;
-use JayI\Stretch\Builders\MultiQueryBuilder;
-use JayI\Stretch\Client\ElasticsearchClient;
-use JayI\Stretch\Contracts\ClientContract;
-use JayI\Stretch\Contracts\MultiQueryBuilderContract;
-use JayI\Stretch\Contracts\QueryBuilderContract;
+use JayI\Stretch\Domains\Connection\Contracts\ClientContract;
+use JayI\Stretch\Domains\DomainServiceProvider;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
 /**
  * StretchServiceProvider handles the registration of Stretch services.
  *
- * This service provider registers all necessary bindings for the Stretch package
- * including the Elasticsearch manager, clients, query builders, and the main
- * Stretch facade. It supports multi-connection functionality and proper
- * dependency injection throughout the package.
+ * Publishes the package config, registers the domain service providers
+ * (connections and query builders) through DomainServiceProvider, and
+ * binds the main Stretch service behind the facade.
  */
 class StretchServiceProvider extends PackageServiceProvider
 {
@@ -46,49 +40,8 @@ class StretchServiceProvider extends PackageServiceProvider
      */
     public function packageRegistered(): void
     {
-        $this->registerElasticsearchClient();
-        $this->registerQueryBuilder();
+        $this->app->register(DomainServiceProvider::class);
         $this->registerStretch();
-    }
-
-    /**
-     * Register Elasticsearch client services.
-     *
-     * Registers the ElasticsearchManager for multi-connection support,
-     * the default Elasticsearch client, and the ClientContract binding.
-     * This setup enables both single and multi-connection usage patterns.
-     */
-    protected function registerElasticsearchClient(): void
-    {
-        // Register the Elasticsearch connection manager as a singleton
-        // This manager handles multiple named connections and lazy loading
-        $this->app->singleton('elasticsearch.manager', function ($app): ElasticsearchManager {
-            return new ElasticsearchManager($app);
-        });
-
-        // Register the default Elasticsearch client
-        // Uses the connection manager to get the default connection
-        $this->app->singleton(Client::class, function ($app): Client {
-            return $app['elasticsearch.manager']->connection();
-        });
-
-        // Register the client contract binding
-        // Wraps the native Elasticsearch client with our contract implementation
-        $this->app->singleton(ClientContract::class, function ($app): ClientContract {
-            return new ElasticsearchClient($app[Client::class]);
-        });
-    }
-
-    /**
-     * Register the query builder contract binding.
-     *
-     * Binds the QueryBuilderContract to the ElasticsearchQueryBuilder
-     * implementation for dependency injection support.
-     */
-    protected function registerQueryBuilder(): void
-    {
-        $this->app->bind(QueryBuilderContract::class, ElasticsearchQueryBuilder::class);
-        $this->app->bind(MultiQueryBuilderContract::class, MultiQueryBuilder::class);
     }
 
     /**

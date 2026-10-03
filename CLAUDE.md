@@ -15,23 +15,32 @@ composer format            # Format code with Pint
 
 Stretch is a Laravel package providing a fluent query builder for Elasticsearch. The package follows Laravel conventions with service provider registration and facade access.
 
+### Layout
+
+Code is grouped into domain modules under `src/Domains/{Domain}/` (namespace `JayI\Stretch\Domains\{Domain}`), mirroring the mono domain-module standard:
+
+- **`Connection`** - `ConnectionServiceProvider`, `Services/ElasticsearchManager` (named connections), `Services/ElasticsearchClient` (wraps the native client), `Contracts/ClientContract`, `Concerns/SwitchesConnections`.
+- **`Query`** - `QueryServiceProvider`, `Builders/` (query, bool, range, function score, span, suggest, retriever, multi, scroll), `Contracts/` (query/bool/range/multi builder contracts), `Concerns/` (`IsCacheable`, `TracksLastQuery`), `Support/ElasticPaginator`.
+- **`Aggregation`** - `Builders/AggregationBuilder` and `Contracts/AggregationBuilderContract`. No provider: it has no container bindings.
+
+`src/Domains/DomainServiceProvider` registers every domain provider from its private `$providers` array. Package-wide code stays at the top level: `Stretch` (facade root spanning connections, indexes, documents and queries), `Facades/Stretch`, `Exceptions/StretchException`, and `StretchServiceProvider` (config publishing, `DomainServiceProvider`, the `stretch` singleton). Builders are kept in a `Builders/` directory because they are the domain's core types and none of the standard's directory names fit them. New code goes in the domain it belongs to; only genuinely cross-domain code belongs at the top level.
+
 ### Core Components
 
 - **`Stretch`** (`src/Stretch.php`) - Main entry point, provides index management, document operations, pipeline/inference/ML management. Accessed via `Stretch` facade.
-- **`ElasticsearchQueryBuilder`** (`src/Builders/ElasticsearchQueryBuilder.php`) - Fluent query builder implementing `QueryBuilderContract`. Created via `Stretch::index()` or `Stretch::query()`.
-- **`MultiQueryBuilder`** (`src/Builders/MultiQueryBuilder.php`) - Executes multiple named queries in a single request via `Stretch::multi()`. Queries are added with `->add('name', callback)` and executed together.
-- **`BoolQueryBuilder`** (`src/Builders/BoolQueryBuilder.php`) - Handles bool queries with must/should/filter/mustNot clauses and boost.
-- **`AggregationBuilder`** (`src/Builders/AggregationBuilder.php`) - Builds aggregations (terms, date histogram, range, stats, metrics) with sub-aggregation support and a `raw()` escape hatch.
-- **`RangeQueryBuilder`** (`src/Builders/RangeQueryBuilder.php`) - Chainable range query methods (gt/gte/lt/lte).
-- **`RetrieverBuilder`** (`src/Builders/RetrieverBuilder.php`) - Composes hybrid search pipelines (standard + kNN + RRF) for ES 8.14+.
-- **`ElasticPaginator`** (`src/Pagination/ElasticPaginator.php`) - Extends Laravel's `LengthAwarePaginator` for Elasticsearch results. Use `ElasticPaginator::fromResponse()` to create from query results.
+- **`ElasticsearchQueryBuilder`** (`src/Domains/Query/Builders/ElasticsearchQueryBuilder.php`) - Fluent query builder implementing `QueryBuilderContract`. Created via `Stretch::index()` or `Stretch::query()`.
+- **`MultiQueryBuilder`** (`src/Domains/Query/Builders/MultiQueryBuilder.php`) - Executes multiple named queries in a single request via `Stretch::multi()`. Queries are added with `->add('name', callback)` and executed together.
+- **`BoolQueryBuilder`** (`src/Domains/Query/Builders/BoolQueryBuilder.php`) - Handles bool queries with must/should/filter/mustNot clauses and boost.
+- **`AggregationBuilder`** (`src/Domains/Aggregation/Builders/AggregationBuilder.php`) - Builds aggregations (terms, date histogram, range, stats, metrics) with sub-aggregation support and a `raw()` escape hatch.
+- **`RangeQueryBuilder`** (`src/Domains/Query/Builders/RangeQueryBuilder.php`) - Chainable range query methods (gt/gte/lt/lte).
+- **`RetrieverBuilder`** (`src/Domains/Query/Builders/RetrieverBuilder.php`) - Composes hybrid search pipelines (standard + kNN + RRF) for ES 8.14+.
+- **`ElasticPaginator`** (`src/Domains/Query/Support/ElasticPaginator.php`) - Extends Laravel's `LengthAwarePaginator` for Elasticsearch results. Use `ElasticPaginator::fromResponse()` to create from query results.
 
 ### Service Registration
 
-`StretchServiceProvider` registers:
-- `elasticsearch.manager` - Multi-connection manager singleton
-- `ClientContract` - Wraps native Elasticsearch client
-- `stretch` - Main Stretch singleton with client and manager
+`StretchServiceProvider` registers `DomainServiceProvider` and the `stretch` singleton (main Stretch service with client and manager). The domain providers register:
+- `ConnectionServiceProvider` - `elasticsearch.manager` (multi-connection manager singleton), the default `Elastic\Elasticsearch\Client`, and `ClientContract` (wraps the native client)
+- `QueryServiceProvider` - `QueryBuilderContract` and `MultiQueryBuilderContract` bindings
 
 ### Query Builder Pattern
 
@@ -225,7 +234,7 @@ Multiple Elasticsearch connections can be configured in `config/stretch.php` und
 
 ### Caching
 
-Query result caching is provided via the `IsCacheable` trait (`src/Builders/Concerns/IsCacheable.php`), used by both `ElasticsearchQueryBuilder` and `MultiQueryBuilder`.
+Query result caching is provided via the `IsCacheable` trait (`src/Domains/Query/Concerns/IsCacheable.php`), used by both `ElasticsearchQueryBuilder` and `MultiQueryBuilder`.
 
 - Enable caching: `->cache()` or `->setCacheEnabled(true)`
 - Set TTL (stale-while-revalidate): `->setCacheTtl([300, 600])` (fresh for 5 min, stale for 10 min)

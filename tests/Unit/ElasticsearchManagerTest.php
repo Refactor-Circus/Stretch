@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use JayI\Stretch\ElasticsearchManager;
+use JayI\Stretch\Domains\Connection\Services\ElasticsearchManager;
 
 it('returns the default connection name from config', function () {
     config(['stretch.default' => 'default']);

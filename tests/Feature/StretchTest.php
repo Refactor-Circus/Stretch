@@ -2,8 +2,8 @@
 
 declare(strict_types=1);
 
-use JayI\Stretch\Contracts\ClientContract;
-use JayI\Stretch\Contracts\QueryBuilderContract;
+use JayI\Stretch\Domains\Connection\Contracts\ClientContract;
+use JayI\Stretch\Domains\Query\Contracts\QueryBuilderContract;
 use JayI\Stretch\Stretch;
 use Mockery as m;
 

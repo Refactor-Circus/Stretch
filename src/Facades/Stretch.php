@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace JayI\Stretch\Facades;
 
 use Illuminate\Support\Facades\Facade;
-use JayI\Stretch\Contracts\ClientContract;
-use JayI\Stretch\Contracts\MultiQueryBuilderContract;
-use JayI\Stretch\Contracts\QueryBuilderContract;
+use JayI\Stretch\Domains\Connection\Contracts\ClientContract;
+use JayI\Stretch\Domains\Query\Contracts\MultiQueryBuilderContract;
+use JayI\Stretch\Domains\Query\Contracts\QueryBuilderContract;
 
 /**
  * Facade for the Stretch Elasticsearch query builder.
@@ -18,7 +18,7 @@ use JayI\Stretch\Contracts\QueryBuilderContract;
  * @method static QueryBuilderContract query() Create a new query builder instance
  * @method static QueryBuilderContract index(string|array $index) Create a query builder for specific index(es)
  * @method static MultiQueryBuilderContract multi() Create a multi-query builder for batch searches
- * @method static \JayI\Stretch\Builders\ScrollBuilder scroll(string|array $index, string $keepAlive = '1m') Create a scroll-capable query builder for streaming a full result set
+ * @method static \JayI\Stretch\Domains\Query\Builders\ScrollBuilder scroll(string|array $index, string $keepAlive = '1m') Create a scroll-capable query builder for streaming a full result set
  * @method static \JayI\Stretch\Stretch connection(string $name) Switch to a named connection
  * @method static ClientContract client() Get the underlying Elasticsearch client
  * @method static bool indexExists(string $index) Check if an index exists

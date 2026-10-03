@@ -5,10 +5,10 @@ declare(strict_types=1);
 use Elastic\Elasticsearch\ClientBuilder;
 use Illuminate\Contracts\Cache\Repository;
 use Illuminate\Support\Facades\Cache;
-use JayI\Stretch\Builders\ElasticsearchQueryBuilder;
-use JayI\Stretch\Builders\MultiQueryBuilder;
-use JayI\Stretch\Contracts\ClientContract;
-use JayI\Stretch\ElasticsearchManager;
+use JayI\Stretch\Domains\Connection\Contracts\ClientContract;
+use JayI\Stretch\Domains\Connection\Services\ElasticsearchManager;
+use JayI\Stretch\Domains\Query\Builders\ElasticsearchQueryBuilder;
+use JayI\Stretch\Domains\Query\Builders\MultiQueryBuilder;
 
 beforeEach(function () {
     config(['stretch.cache.enabled' => false]);

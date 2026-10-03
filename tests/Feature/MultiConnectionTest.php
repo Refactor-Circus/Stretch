@@ -3,9 +3,9 @@
 declare(strict_types=1);
 
 use Elastic\Elasticsearch\ClientBuilder;
-use JayI\Stretch\Builders\ElasticsearchQueryBuilder;
-use JayI\Stretch\Contracts\ClientContract;
-use JayI\Stretch\ElasticsearchManager;
+use JayI\Stretch\Domains\Connection\Contracts\ClientContract;
+use JayI\Stretch\Domains\Connection\Services\ElasticsearchManager;
+use JayI\Stretch\Domains\Query\Builders\ElasticsearchQueryBuilder;
 use JayI\Stretch\Stretch;
 
 it('can use different connections via Stretch facade', function () {

@@ -2,8 +2,8 @@
 
 declare(strict_types=1);
 
-use JayI\Stretch\Builders\ElasticsearchQueryBuilder;
-use JayI\Stretch\Contracts\ClientContract;
+use JayI\Stretch\Domains\Connection\Contracts\ClientContract;
+use JayI\Stretch\Domains\Query\Builders\ElasticsearchQueryBuilder;
 use JayI\Stretch\Exceptions\StretchException;
 use Mockery as m;
 
