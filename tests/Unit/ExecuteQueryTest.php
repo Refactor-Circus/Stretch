@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-use JayI\Stretch\Domains\Connection\Contracts\ClientContract;
-use JayI\Stretch\Domains\Query\Builders\ElasticsearchQueryBuilder;
 use Mockery as m;
+use RefactorCircus\Stretch\Domains\Connection\Contracts\ClientContract;
+use RefactorCircus\Stretch\Domains\Query\Builders\ElasticsearchQueryBuilder;
 
 it('wraps query in body when executing', function () {
     $mockClient = m::mock(ClientContract::class);

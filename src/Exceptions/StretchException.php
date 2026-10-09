@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace JayI\Stretch\Exceptions;
+namespace RefactorCircus\Stretch\Exceptions;
 
 use Exception;
 

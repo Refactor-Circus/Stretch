@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-use JayI\Stretch\Domains\Connection\Contracts\ClientContract;
-use JayI\Stretch\Domains\Query\Builders\ElasticsearchQueryBuilder;
-use JayI\Stretch\Exceptions\StretchException;
 use Mockery as m;
+use RefactorCircus\Stretch\Domains\Connection\Contracts\ClientContract;
+use RefactorCircus\Stretch\Domains\Query\Builders\ElasticsearchQueryBuilder;
+use RefactorCircus\Stretch\Exceptions\StretchException;
 
 it('counts documents via the _count API', function () {
     $mockClient = m::mock(ClientContract::class);

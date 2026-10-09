@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-use JayI\Stretch\Domains\Connection\Contracts\ClientContract;
-use JayI\Stretch\Stretch;
 use Mockery as m;
+use RefactorCircus\Stretch\Domains\Connection\Contracts\ClientContract;
+use RefactorCircus\Stretch\Stretch;
 
 it('runs update_by_query with a script', function () {
     $mockClient = m::mock(ClientContract::class);

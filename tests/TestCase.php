@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace JayI\Stretch\Tests;
+namespace RefactorCircus\Stretch\Tests;
 
 use Orchestra\Testbench\Concerns\WithWorkbench;
 use Orchestra\Testbench\TestCase as Orchestra;

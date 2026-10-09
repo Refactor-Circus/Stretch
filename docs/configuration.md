@@ -5,7 +5,7 @@
 Install the package via Composer:
 
 ```bash
-composer require jayi/stretch
+composer require refactor-circus/stretch
 ```
 
 Publish the configuration file:
@@ -119,7 +119,7 @@ Define additional connections in `config/stretch.php`:
 Switch connections at runtime:
 
 ```php
-use JayI\Stretch\Facades\Stretch;
+use RefactorCircus\Stretch\Facades\Stretch;
 
 // Use a named connection
 Stretch::connection('analytics')->index('events')->match('type', 'click')->execute();

@@ -3,17 +3,17 @@
 declare(strict_types=1);
 
 use Elastic\Elasticsearch\Client;
-use JayI\Stretch\Domains\Connection\ConnectionServiceProvider;
-use JayI\Stretch\Domains\Connection\Contracts\ClientContract;
-use JayI\Stretch\Domains\Connection\Services\ElasticsearchClient;
-use JayI\Stretch\Domains\Connection\Services\ElasticsearchManager;
-use JayI\Stretch\Domains\DomainServiceProvider;
-use JayI\Stretch\Domains\Query\Builders\ElasticsearchQueryBuilder;
-use JayI\Stretch\Domains\Query\Builders\MultiQueryBuilder;
-use JayI\Stretch\Domains\Query\Contracts\MultiQueryBuilderContract;
-use JayI\Stretch\Domains\Query\Contracts\QueryBuilderContract;
-use JayI\Stretch\Domains\Query\QueryServiceProvider;
-use JayI\Stretch\Stretch;
+use RefactorCircus\Stretch\Domains\Connection\ConnectionServiceProvider;
+use RefactorCircus\Stretch\Domains\Connection\Contracts\ClientContract;
+use RefactorCircus\Stretch\Domains\Connection\Services\ElasticsearchClient;
+use RefactorCircus\Stretch\Domains\Connection\Services\ElasticsearchManager;
+use RefactorCircus\Stretch\Domains\DomainServiceProvider;
+use RefactorCircus\Stretch\Domains\Query\Builders\ElasticsearchQueryBuilder;
+use RefactorCircus\Stretch\Domains\Query\Builders\MultiQueryBuilder;
+use RefactorCircus\Stretch\Domains\Query\Contracts\MultiQueryBuilderContract;
+use RefactorCircus\Stretch\Domains\Query\Contracts\QueryBuilderContract;
+use RefactorCircus\Stretch\Domains\Query\QueryServiceProvider;
+use RefactorCircus\Stretch\Stretch;
 
 it('registers the domain service providers', function () {
     expect(app()->getProvider(DomainServiceProvider::class))->not->toBeNull()

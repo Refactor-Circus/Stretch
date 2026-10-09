@@ -10,7 +10,7 @@ standard and retriever request shapes.
 Drop hits whose `_score` falls below a threshold.
 
 ```php
-use JayI\Stretch\Facades\Stretch;
+use RefactorCircus\Stretch\Facades\Stretch;
 
 Stretch::index('posts')
     ->match('title', 'laravel')

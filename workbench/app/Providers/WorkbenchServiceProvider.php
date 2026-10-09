@@ -3,7 +3,7 @@
 namespace Workbench\App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use JayI\Stretch\StretchServiceProvider;
+use RefactorCircus\Stretch\StretchServiceProvider;
 
 class WorkbenchServiceProvider extends ServiceProvider
 {

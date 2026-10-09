@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use JayI\Stretch\Domains\Aggregation\Builders\AggregationBuilder;
+use RefactorCircus\Stretch\Domains\Aggregation\Builders\AggregationBuilder;
 
 it('builds a percentiles aggregation', function () {
     $agg = (new AggregationBuilder)->percentiles('load_time', [95, 99])->build();

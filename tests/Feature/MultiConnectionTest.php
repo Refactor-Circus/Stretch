@@ -3,10 +3,10 @@
 declare(strict_types=1);
 
 use Elastic\Elasticsearch\ClientBuilder;
-use JayI\Stretch\Domains\Connection\Contracts\ClientContract;
-use JayI\Stretch\Domains\Connection\Services\ElasticsearchManager;
-use JayI\Stretch\Domains\Query\Builders\ElasticsearchQueryBuilder;
-use JayI\Stretch\Stretch;
+use RefactorCircus\Stretch\Domains\Connection\Contracts\ClientContract;
+use RefactorCircus\Stretch\Domains\Connection\Services\ElasticsearchManager;
+use RefactorCircus\Stretch\Domains\Query\Builders\ElasticsearchQueryBuilder;
+use RefactorCircus\Stretch\Stretch;
 
 it('can use different connections via Stretch facade', function () {
     $defaultClientContract = Mockery::mock(ClientContract::class);

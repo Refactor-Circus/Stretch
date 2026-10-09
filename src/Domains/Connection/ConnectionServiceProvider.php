@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace JayI\Stretch\Domains\Connection;
+namespace RefactorCircus\Stretch\Domains\Connection;
 
 use Elastic\Elasticsearch\Client;
 use Illuminate\Support\ServiceProvider;
-use JayI\Stretch\Domains\Connection\Contracts\ClientContract;
-use JayI\Stretch\Domains\Connection\Services\ElasticsearchClient;
-use JayI\Stretch\Domains\Connection\Services\ElasticsearchManager;
+use RefactorCircus\Stretch\Domains\Connection\Contracts\ClientContract;
+use RefactorCircus\Stretch\Domains\Connection\Services\ElasticsearchClient;
+use RefactorCircus\Stretch\Domains\Connection\Services\ElasticsearchManager;
 
 /**
  * Registers the Elasticsearch connection services.

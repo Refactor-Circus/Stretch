@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace JayI\Stretch\Domains\Query\Contracts;
+namespace RefactorCircus\Stretch\Domains\Query\Contracts;
 
 /**
  * Contract for Elasticsearch multi-search query builders.

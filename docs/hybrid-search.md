@@ -12,7 +12,7 @@ Both approaches operate on `dense_vector` fields. You can either pass a pre-comp
 ### Pure kNN Search
 
 ```php
-use JayI\Stretch\Facades\Stretch;
+use RefactorCircus\Stretch\Facades\Stretch;
 
 $results = Stretch::index('posts')
     ->knn('title_vector', $queryVector, k: 10)
@@ -122,7 +122,7 @@ When a retriever is set, it replaces the top-level `query` and `knn` clauses.
 ### RRF: Keyword + Semantic
 
 ```php
-use JayI\Stretch\Facades\Stretch;
+use RefactorCircus\Stretch\Facades\Stretch;
 
 $results = Stretch::index('posts')
     ->retriever(function ($r) use ($queryVector) {

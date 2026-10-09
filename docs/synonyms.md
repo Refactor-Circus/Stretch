@@ -2,14 +2,14 @@
 
 Stretch exposes the Elasticsearch [Synonyms API](https://www.elastic.co/docs/api/doc/elasticsearch/group/endpoint-synonyms) via the `Stretch` facade. Synonym sets let you manage lists of term equivalents (e.g. `"hi, hello, hey"`) that analyzers can reference at search time.
 
-All methods throw `JayI\Stretch\Exceptions\StretchException` on failure.
+All methods throw `RefactorCircus\Stretch\Exceptions\StretchException` on failure.
 
 ## Synonym Sets
 
 ### Create or Update a Synonym Set
 
 ```php
-use JayI\Stretch\Facades\Stretch;
+use RefactorCircus\Stretch\Facades\Stretch;
 
 Stretch::putSynonym('my-synonyms', [
     ['id' => 'rule-1', 'synonyms' => 'hello, hi, hey'],

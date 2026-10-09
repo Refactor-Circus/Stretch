@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace JayI\Stretch\Domains\Query\Builders;
+namespace RefactorCircus\Stretch\Domains\Query\Builders;
 
 use Illuminate\Support\Arr;
-use JayI\Stretch\Domains\Connection\Concerns\SwitchesConnections;
-use JayI\Stretch\Domains\Connection\Contracts\ClientContract;
-use JayI\Stretch\Domains\Connection\Services\ElasticsearchManager;
-use JayI\Stretch\Domains\Query\Concerns\IsCacheable;
-use JayI\Stretch\Domains\Query\Concerns\TracksLastQuery;
-use JayI\Stretch\Domains\Query\Contracts\MultiQueryBuilderContract;
-use JayI\Stretch\Domains\Query\Contracts\QueryBuilderContract;
-use JayI\Stretch\Exceptions\StretchException;
+use RefactorCircus\Stretch\Domains\Connection\Concerns\SwitchesConnections;
+use RefactorCircus\Stretch\Domains\Connection\Contracts\ClientContract;
+use RefactorCircus\Stretch\Domains\Connection\Services\ElasticsearchManager;
+use RefactorCircus\Stretch\Domains\Query\Concerns\IsCacheable;
+use RefactorCircus\Stretch\Domains\Query\Concerns\TracksLastQuery;
+use RefactorCircus\Stretch\Domains\Query\Contracts\MultiQueryBuilderContract;
+use RefactorCircus\Stretch\Domains\Query\Contracts\QueryBuilderContract;
+use RefactorCircus\Stretch\Exceptions\StretchException;
 
 /**
  * MultiQueryBuilder provides a fluent interface for building Elasticsearch multi-search requests.

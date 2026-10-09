@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace JayI\Stretch\Domains\Connection\Contracts;
+namespace RefactorCircus\Stretch\Domains\Connection\Contracts;
 
-use JayI\Stretch\Exceptions\StretchException;
+use RefactorCircus\Stretch\Exceptions\StretchException;
 
 /**
  * Contract for Elasticsearch client implementations.

@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace JayI\Stretch\Domains\Query\Builders;
+namespace RefactorCircus\Stretch\Domains\Query\Builders;
 
-use JayI\Stretch\Domains\Query\Contracts\BoolQueryBuilderContract;
-use JayI\Stretch\Domains\Query\Contracts\QueryBuilderContract;
+use RefactorCircus\Stretch\Domains\Query\Contracts\BoolQueryBuilderContract;
+use RefactorCircus\Stretch\Domains\Query\Contracts\QueryBuilderContract;
 
 /**
  * Builds Elasticsearch bool queries with must, should, filter, and must_not clauses.

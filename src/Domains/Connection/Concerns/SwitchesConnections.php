@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace JayI\Stretch\Domains\Connection\Concerns;
+namespace RefactorCircus\Stretch\Domains\Connection\Concerns;
 
-use JayI\Stretch\Domains\Connection\Services\ElasticsearchClient;
+use RefactorCircus\Stretch\Domains\Connection\Services\ElasticsearchClient;
 
 /**
  * Allows an instance to be re-bound to a named Elasticsearch connection.

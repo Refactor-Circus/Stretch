@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace JayI\Stretch\Domains\Aggregation\Contracts;
+namespace RefactorCircus\Stretch\Domains\Aggregation\Contracts;
 
-use JayI\Stretch\Domains\Aggregation\Builders\AggregationBuilder;
+use RefactorCircus\Stretch\Domains\Aggregation\Builders\AggregationBuilder;
 
 /**
  * Contract for Elasticsearch aggregation builders.

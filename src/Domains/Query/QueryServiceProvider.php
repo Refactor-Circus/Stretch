@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace JayI\Stretch\Domains\Query;
+namespace RefactorCircus\Stretch\Domains\Query;
 
 use Illuminate\Support\ServiceProvider;
-use JayI\Stretch\Domains\Query\Builders\ElasticsearchQueryBuilder;
-use JayI\Stretch\Domains\Query\Builders\MultiQueryBuilder;
-use JayI\Stretch\Domains\Query\Contracts\MultiQueryBuilderContract;
-use JayI\Stretch\Domains\Query\Contracts\QueryBuilderContract;
+use RefactorCircus\Stretch\Domains\Query\Builders\ElasticsearchQueryBuilder;
+use RefactorCircus\Stretch\Domains\Query\Builders\MultiQueryBuilder;
+use RefactorCircus\Stretch\Domains\Query\Contracts\MultiQueryBuilderContract;
+use RefactorCircus\Stretch\Domains\Query\Contracts\QueryBuilderContract;
 
 /**
  * Binds the query builder contracts to their Elasticsearch implementations

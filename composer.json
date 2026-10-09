@@ -1,5 +1,5 @@
 {
-    "name": "jayi/stretch",
+    "name": "refactor-circus/stretch",
     "description": "A Laravel package for building Elasticsearch queries with a fluent, intuitive API",
     "keywords": [
         "laravel",
@@ -8,7 +8,7 @@
         "search",
         "stretch"
     ],
-    "homepage": "https://github.com/jayi/stretch",
+    "homepage": "https://github.com/refactor-circus/stretch",
     "license": "MIT",
     "authors": [
         {
@@ -43,12 +43,12 @@
     },
     "autoload": {
         "psr-4": {
-            "JayI\\Stretch\\": "src/"
+            "RefactorCircus\\Stretch\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "JayI\\Stretch\\Tests\\": "tests/",
+            "RefactorCircus\\Stretch\\Tests\\": "tests/",
             "Workbench\\App\\": "workbench/app/"
         }
     },
@@ -88,10 +88,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "JayI\\Stretch\\StretchServiceProvider"
+                "RefactorCircus\\Stretch\\StretchServiceProvider"
             ],
             "aliases": {
-                "Stretch": "JayI\\Stretch\\Facades\\Stretch"
+                "Stretch": "RefactorCircus\\Stretch\\Facades\\Stretch"
             }
         }
     },

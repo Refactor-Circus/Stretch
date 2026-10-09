@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace JayI\Stretch\Domains;
+namespace RefactorCircus\Stretch\Domains;
 
 use Illuminate\Support\ServiceProvider;
-use JayI\Stretch\Domains\Connection\ConnectionServiceProvider;
-use JayI\Stretch\Domains\Query\QueryServiceProvider;
+use RefactorCircus\Stretch\Domains\Connection\ConnectionServiceProvider;
+use RefactorCircus\Stretch\Domains\Query\QueryServiceProvider;
 
 /**
  * Registers every Stretch domain service provider.

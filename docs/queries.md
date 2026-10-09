@@ -7,7 +7,7 @@ Stretch provides a fluent query builder for all major Elasticsearch query types.
 Full-text search that analyzes input text and matches against analyzed fields.
 
 ```php
-use JayI\Stretch\Facades\Stretch;
+use RefactorCircus\Stretch\Facades\Stretch;
 
 // Simple match
 $results = Stretch::index('posts')

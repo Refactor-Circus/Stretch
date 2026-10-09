@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace JayI\Stretch\Domains\Query\Concerns;
+namespace RefactorCircus\Stretch\Domains\Query\Concerns;
 
 use Closure;
 use Illuminate\Support\Arr;

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace JayI\Stretch\Domains\Query\Builders;
+namespace RefactorCircus\Stretch\Domains\Query\Builders;
 
 /**
  * Fluent builder for span queries.

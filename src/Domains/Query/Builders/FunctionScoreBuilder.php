@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace JayI\Stretch\Domains\Query\Builders;
+namespace RefactorCircus\Stretch\Domains\Query\Builders;
 
-use JayI\Stretch\Domains\Connection\Contracts\ClientContract;
-use JayI\Stretch\Domains\Connection\Services\ElasticsearchManager;
+use RefactorCircus\Stretch\Domains\Connection\Contracts\ClientContract;
+use RefactorCircus\Stretch\Domains\Connection\Services\ElasticsearchManager;
 
 /**
  * Fluent builder for function_score queries.

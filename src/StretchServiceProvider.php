@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace JayI\Stretch;
+namespace RefactorCircus\Stretch;
 
-use JayI\Stretch\Domains\Connection\Contracts\ClientContract;
-use JayI\Stretch\Domains\DomainServiceProvider;
+use RefactorCircus\Stretch\Domains\Connection\Contracts\ClientContract;
+use RefactorCircus\Stretch\Domains\DomainServiceProvider;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 

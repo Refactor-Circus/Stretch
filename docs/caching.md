@@ -7,7 +7,7 @@ Stretch supports query result caching using Laravel's cache system with a stale-
 Enable caching on any query or multi-query with `->cache()`:
 
 ```php
-use JayI\Stretch\Facades\Stretch;
+use RefactorCircus\Stretch\Facades\Stretch;
 
 $results = Stretch::index('posts')
     ->match('title', 'Laravel')

@@ -7,7 +7,7 @@ Aggregations provide analytics and statistics about your search results. Stretch
 Aggregations are added to a query builder via the `aggregation()` method:
 
 ```php
-use JayI\Stretch\Facades\Stretch;
+use RefactorCircus\Stretch\Facades\Stretch;
 
 $results = Stretch::index('posts')
     ->match('content', 'elasticsearch')

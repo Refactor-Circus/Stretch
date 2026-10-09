@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace JayI\Stretch\Domains\Aggregation\Builders;
+namespace RefactorCircus\Stretch\Domains\Aggregation\Builders;
 
-use JayI\Stretch\Domains\Aggregation\Contracts\AggregationBuilderContract;
-use JayI\Stretch\Domains\Query\Builders\ElasticsearchQueryBuilder;
 use LogicException;
+use RefactorCircus\Stretch\Domains\Aggregation\Contracts\AggregationBuilderContract;
+use RefactorCircus\Stretch\Domains\Query\Builders\ElasticsearchQueryBuilder;
 
 /**
  * Builds Elasticsearch aggregations for analytics and statistics.

@@ -10,7 +10,7 @@ four score functions: `saturation`, `log`, `sigmoid`, or `linear` (default).
 Typically used inside a bool query's `should` clauses.
 
 ```php
-use JayI\Stretch\Facades\Stretch;
+use RefactorCircus\Stretch\Facades\Stretch;
 
 Stretch::index('pages')
     ->bool(function ($bool) {

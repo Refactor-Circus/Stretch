@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace JayI\Stretch;
+namespace RefactorCircus\Stretch;
 
-use JayI\Stretch\Domains\Connection\Concerns\SwitchesConnections;
-use JayI\Stretch\Domains\Connection\Contracts\ClientContract;
-use JayI\Stretch\Domains\Connection\Services\ElasticsearchManager;
-use JayI\Stretch\Domains\Query\Builders\ElasticsearchQueryBuilder;
-use JayI\Stretch\Domains\Query\Builders\MultiQueryBuilder;
-use JayI\Stretch\Domains\Query\Builders\ScrollBuilder;
-use JayI\Stretch\Domains\Query\Contracts\MultiQueryBuilderContract;
-use JayI\Stretch\Domains\Query\Contracts\QueryBuilderContract;
-use JayI\Stretch\Exceptions\StretchException;
+use RefactorCircus\Stretch\Domains\Connection\Concerns\SwitchesConnections;
+use RefactorCircus\Stretch\Domains\Connection\Contracts\ClientContract;
+use RefactorCircus\Stretch\Domains\Connection\Services\ElasticsearchManager;
+use RefactorCircus\Stretch\Domains\Query\Builders\ElasticsearchQueryBuilder;
+use RefactorCircus\Stretch\Domains\Query\Builders\MultiQueryBuilder;
+use RefactorCircus\Stretch\Domains\Query\Builders\ScrollBuilder;
+use RefactorCircus\Stretch\Domains\Query\Contracts\MultiQueryBuilderContract;
+use RefactorCircus\Stretch\Domains\Query\Contracts\QueryBuilderContract;
+use RefactorCircus\Stretch\Exceptions\StretchException;
 
 /**
  * Stretch - Laravel Elasticsearch Query Builder

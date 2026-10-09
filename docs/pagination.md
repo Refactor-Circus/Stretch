@@ -7,8 +7,8 @@ Stretch includes `ElasticPaginator`, which extends Laravel's `LengthAwarePaginat
 Build a query, execute it, then create a paginator from the response:
 
 ```php
-use JayI\Stretch\Facades\Stretch;
-use JayI\Stretch\Domains\Query\Support\ElasticPaginator;
+use RefactorCircus\Stretch\Facades\Stretch;
+use RefactorCircus\Stretch\Domains\Query\Support\ElasticPaginator;
 
 $query = Stretch::index('posts')
     ->match('title', 'Laravel')

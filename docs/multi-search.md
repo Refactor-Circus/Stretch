@@ -5,7 +5,7 @@ The `MultiQueryBuilder` lets you execute multiple search queries in a single Ela
 ## Basic Usage
 
 ```php
-use JayI\Stretch\Facades\Stretch;
+use RefactorCircus\Stretch\Facades\Stretch;
 
 $results = Stretch::multi()
     ->add('posts', fn ($q) => $q->index('posts')->match('title', 'Laravel')->size(10))

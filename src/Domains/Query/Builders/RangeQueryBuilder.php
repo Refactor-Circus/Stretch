@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace JayI\Stretch\Domains\Query\Builders;
+namespace RefactorCircus\Stretch\Domains\Query\Builders;
 
-use JayI\Stretch\Domains\Query\Contracts\QueryBuilderContract;
-use JayI\Stretch\Domains\Query\Contracts\RangeQueryBuilderContract;
+use RefactorCircus\Stretch\Domains\Query\Contracts\QueryBuilderContract;
+use RefactorCircus\Stretch\Domains\Query\Contracts\RangeQueryBuilderContract;
 
 /**
  * Builds Elasticsearch range queries for numeric, date, and string fields.

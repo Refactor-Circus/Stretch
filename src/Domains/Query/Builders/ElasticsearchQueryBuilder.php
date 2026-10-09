@@ -2,19 +2,19 @@
 
 declare(strict_types=1);
 
-namespace JayI\Stretch\Domains\Query\Builders;
+namespace RefactorCircus\Stretch\Domains\Query\Builders;
 
 use Illuminate\Container\Container;
-use JayI\Stretch\Domains\Aggregation\Builders\AggregationBuilder;
-use JayI\Stretch\Domains\Connection\Concerns\SwitchesConnections;
-use JayI\Stretch\Domains\Connection\Contracts\ClientContract;
-use JayI\Stretch\Domains\Connection\Services\ElasticsearchManager;
-use JayI\Stretch\Domains\Query\Concerns\IsCacheable;
-use JayI\Stretch\Domains\Query\Concerns\TracksLastQuery;
-use JayI\Stretch\Domains\Query\Contracts\BoolQueryBuilderContract;
-use JayI\Stretch\Domains\Query\Contracts\QueryBuilderContract;
-use JayI\Stretch\Domains\Query\Contracts\RangeQueryBuilderContract;
-use JayI\Stretch\Exceptions\StretchException;
+use RefactorCircus\Stretch\Domains\Aggregation\Builders\AggregationBuilder;
+use RefactorCircus\Stretch\Domains\Connection\Concerns\SwitchesConnections;
+use RefactorCircus\Stretch\Domains\Connection\Contracts\ClientContract;
+use RefactorCircus\Stretch\Domains\Connection\Services\ElasticsearchManager;
+use RefactorCircus\Stretch\Domains\Query\Concerns\IsCacheable;
+use RefactorCircus\Stretch\Domains\Query\Concerns\TracksLastQuery;
+use RefactorCircus\Stretch\Domains\Query\Contracts\BoolQueryBuilderContract;
+use RefactorCircus\Stretch\Domains\Query\Contracts\QueryBuilderContract;
+use RefactorCircus\Stretch\Domains\Query\Contracts\RangeQueryBuilderContract;
+use RefactorCircus\Stretch\Exceptions\StretchException;
 
 /**
  * ElasticsearchQueryBuilder provides a fluent interface for building Elasticsearch queries.

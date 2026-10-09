@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace JayI\Stretch\Domains\Query\Support;
+namespace RefactorCircus\Stretch\Domains\Query\Support;
 
 use Illuminate\Pagination\LengthAwarePaginator;
-use JayI\Stretch\Domains\Query\Contracts\QueryBuilderContract;
+use RefactorCircus\Stretch\Domains\Query\Contracts\QueryBuilderContract;
 
 /**
  * Class ElasticPaginator

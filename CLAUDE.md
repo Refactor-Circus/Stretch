@@ -17,7 +17,7 @@ Stretch is a Laravel package providing a fluent query builder for Elasticsearch.
 
 ### Layout
 
-Code is grouped into domain modules under `src/Domains/{Domain}/` (namespace `JayI\Stretch\Domains\{Domain}`), mirroring the mono domain-module standard:
+Code is grouped into domain modules under `src/Domains/{Domain}/` (namespace `RefactorCircus\Stretch\Domains\{Domain}`), mirroring the mono domain-module standard:
 
 - **`Connection`** - `ConnectionServiceProvider`, `Services/ElasticsearchManager` (named connections), `Services/ElasticsearchClient` (wraps the native client), `Contracts/ClientContract`, `Concerns/SwitchesConnections`.
 - **`Query`** - `QueryServiceProvider`, `Builders/` (query, bool, range, function score, span, suggest, retriever, multi, scroll), `Contracts/` (query/bool/range/multi builder contracts), `Concerns/` (`IsCacheable`, `TracksLastQuery`), `Support/ElasticPaginator`.

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace JayI\Stretch\Domains\Query\Concerns;
+namespace RefactorCircus\Stretch\Domains\Query\Concerns;
 
 /**
  * Tracks the parameters dispatched to the client on the most recent execute().

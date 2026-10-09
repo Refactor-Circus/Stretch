@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use JayI\Stretch\Domains\Aggregation\Builders\AggregationBuilder;
+use RefactorCircus\Stretch\Domains\Aggregation\Builders\AggregationBuilder;
 
 it('can create a terms aggregation', function () {
     $agg = new AggregationBuilder;

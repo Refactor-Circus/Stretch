@@ -7,7 +7,7 @@ Stretch provides methods for managing Elasticsearch indices and documents via th
 ### Check if Index Exists
 
 ```php
-use JayI\Stretch\Facades\Stretch;
+use RefactorCircus\Stretch\Facades\Stretch;
 
 $exists = Stretch::indexExists('posts');
 ```
@@ -375,7 +375,7 @@ Stretch::connection('analytics')->indexDocument('events', [
 All index and document operations throw `StretchException` on failure:
 
 ```php
-use JayI\Stretch\Exceptions\StretchException;
+use RefactorCircus\Stretch\Exceptions\StretchException;
 
 try {
     Stretch::deleteIndex('nonexistent');

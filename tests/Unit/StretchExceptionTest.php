@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use JayI\Stretch\Exceptions\StretchException;
+use RefactorCircus\Stretch\Exceptions\StretchException;
 
 it('extends base Exception', function () {
     $exception = new StretchException('Test error');

@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-use JayI\Stretch\Domains\Connection\Contracts\ClientContract;
-use JayI\Stretch\Domains\Query\Builders\ElasticsearchQueryBuilder;
-use JayI\Stretch\Domains\Query\Builders\MultiQueryBuilder;
 use Mockery as m;
+use RefactorCircus\Stretch\Domains\Connection\Contracts\ClientContract;
+use RefactorCircus\Stretch\Domains\Query\Builders\ElasticsearchQueryBuilder;
+use RefactorCircus\Stretch\Domains\Query\Builders\MultiQueryBuilder;
 
 it('can add a query using a callback', function () {
     $builder = new MultiQueryBuilder;

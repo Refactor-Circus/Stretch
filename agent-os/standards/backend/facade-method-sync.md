@@ -19,5 +19,5 @@ class Stretch extends Facade
 ```
 
 - Add a public method to `Stretch` → add/update the `@method static` line. Match signature and return type exactly.
-- Keep `@see \JayI\Stretch\Stretch` on the facade so the two stay discoverable together.
+- Keep `@see \RefactorCircus\Stretch\Stretch` on the facade so the two stay discoverable together.
 - Removing/renaming a `Stretch` method → update the tag in the same change.

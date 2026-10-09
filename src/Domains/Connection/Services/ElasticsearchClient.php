@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace JayI\Stretch\Domains\Connection\Services;
+namespace RefactorCircus\Stretch\Domains\Connection\Services;
 
 use Elastic\Elasticsearch\Client;
 use Elastic\Elasticsearch\Exception\ClientResponseException;
 use Exception;
 use Illuminate\Support\Facades\Log;
-use JayI\Stretch\Domains\Connection\Contracts\ClientContract;
-use JayI\Stretch\Exceptions\StretchException;
+use RefactorCircus\Stretch\Domains\Connection\Contracts\ClientContract;
+use RefactorCircus\Stretch\Exceptions\StretchException;
 
 /**
  * Wrapper around the official Elasticsearch PHP client.

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use JayI\Stretch\Domains\Query\Builders\ElasticsearchQueryBuilder;
+use RefactorCircus\Stretch\Domains\Query\Builders\ElasticsearchQueryBuilder;
 
 it('can create a standalone filter query', function () {
     $builder = new ElasticsearchQueryBuilder;

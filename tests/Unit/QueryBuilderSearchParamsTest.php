@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use JayI\Stretch\Domains\Query\Builders\ElasticsearchQueryBuilder;
+use RefactorCircus\Stretch\Domains\Query\Builders\ElasticsearchQueryBuilder;
 
 it('adds search_after to the body', function () {
     $body = (new ElasticsearchQueryBuilder)

@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace JayI\Stretch\Domains\Query\Contracts;
+namespace RefactorCircus\Stretch\Domains\Query\Contracts;
 
-use JayI\Stretch\Domains\Aggregation\Builders\AggregationBuilder;
-use JayI\Stretch\Domains\Query\Builders\BoolQueryBuilder;
-use JayI\Stretch\Domains\Query\Builders\FunctionScoreBuilder;
-use JayI\Stretch\Domains\Query\Builders\RetrieverBuilder;
-use JayI\Stretch\Domains\Query\Builders\SpanQueryBuilder;
-use JayI\Stretch\Domains\Query\Builders\SuggestBuilder;
-use JayI\Stretch\Exceptions\StretchException;
+use RefactorCircus\Stretch\Domains\Aggregation\Builders\AggregationBuilder;
+use RefactorCircus\Stretch\Domains\Query\Builders\BoolQueryBuilder;
+use RefactorCircus\Stretch\Domains\Query\Builders\FunctionScoreBuilder;
+use RefactorCircus\Stretch\Domains\Query\Builders\RetrieverBuilder;
+use RefactorCircus\Stretch\Domains\Query\Builders\SpanQueryBuilder;
+use RefactorCircus\Stretch\Domains\Query\Builders\SuggestBuilder;
+use RefactorCircus\Stretch\Exceptions\StretchException;
 
 /**
  * Contract for Elasticsearch query builders.

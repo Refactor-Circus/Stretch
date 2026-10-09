@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-use JayI\Stretch\Domains\Connection\Contracts\ClientContract;
-use JayI\Stretch\Domains\Connection\Services\ElasticsearchClient;
-use JayI\Stretch\Exceptions\StretchException;
+use RefactorCircus\Stretch\Domains\Connection\Contracts\ClientContract;
+use RefactorCircus\Stretch\Domains\Connection\Services\ElasticsearchClient;
+use RefactorCircus\Stretch\Exceptions\StretchException;
 
 beforeEach(function () {
     config([

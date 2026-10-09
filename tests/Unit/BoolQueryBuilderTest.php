@@ -2,8 +2,8 @@
 
 declare(strict_types=1);
 
-use JayI\Stretch\Domains\Query\Builders\BoolQueryBuilder;
-use JayI\Stretch\Domains\Query\Builders\ElasticsearchQueryBuilder;
+use RefactorCircus\Stretch\Domains\Query\Builders\BoolQueryBuilder;
+use RefactorCircus\Stretch\Domains\Query\Builders\ElasticsearchQueryBuilder;
 
 it('can build a must clause with a single callback', function () {
     $parent = new ElasticsearchQueryBuilder;

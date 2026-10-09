@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-use JayI\Stretch\Domains\Connection\Contracts\ClientContract;
-use JayI\Stretch\Domains\Query\Builders\ScrollBuilder;
 use Mockery as m;
+use RefactorCircus\Stretch\Domains\Connection\Contracts\ClientContract;
+use RefactorCircus\Stretch\Domains\Query\Builders\ScrollBuilder;
 
 it('opens a scroll, walks batches and clears the context', function () {
     $mockClient = m::mock(ClientContract::class);

@@ -7,7 +7,7 @@ A fluent, intuitive Laravel package for building Elasticsearch queries with comp
 Install the package via Composer:
 
 ```bash
-composer require jayi/stretch
+composer require refactor-circus/stretch
 ```
 
 Publish the configuration file:
@@ -29,7 +29,7 @@ ELASTICSEARCH_PASSWORD=your_password
 ## Basic Usage
 
 ```php
-use JayI\Stretch\Facades\Stretch;
+use RefactorCircus\Stretch\Facades\Stretch;
 
 // Full-text search
 $results = Stretch::index('posts')

@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace JayI\Stretch\Facades;
+namespace RefactorCircus\Stretch\Facades;
 
 use Illuminate\Support\Facades\Facade;
-use JayI\Stretch\Domains\Connection\Contracts\ClientContract;
-use JayI\Stretch\Domains\Query\Contracts\MultiQueryBuilderContract;
-use JayI\Stretch\Domains\Query\Contracts\QueryBuilderContract;
+use RefactorCircus\Stretch\Domains\Connection\Contracts\ClientContract;
+use RefactorCircus\Stretch\Domains\Query\Contracts\MultiQueryBuilderContract;
+use RefactorCircus\Stretch\Domains\Query\Contracts\QueryBuilderContract;
 
 /**
  * Facade for the Stretch Elasticsearch query builder.
@@ -18,8 +18,8 @@ use JayI\Stretch\Domains\Query\Contracts\QueryBuilderContract;
  * @method static QueryBuilderContract query() Create a new query builder instance
  * @method static QueryBuilderContract index(string|array $index) Create a query builder for specific index(es)
  * @method static MultiQueryBuilderContract multi() Create a multi-query builder for batch searches
- * @method static \JayI\Stretch\Domains\Query\Builders\ScrollBuilder scroll(string|array $index, string $keepAlive = '1m') Create a scroll-capable query builder for streaming a full result set
- * @method static \JayI\Stretch\Stretch connection(string $name) Switch to a named connection
+ * @method static \RefactorCircus\Stretch\Domains\Query\Builders\ScrollBuilder scroll(string|array $index, string $keepAlive = '1m') Create a scroll-capable query builder for streaming a full result set
+ * @method static \RefactorCircus\Stretch\Stretch connection(string $name) Switch to a named connection
  * @method static ClientContract client() Get the underlying Elasticsearch client
  * @method static bool indexExists(string $index) Check if an index exists
  * @method static array createIndex(string $index, array $settings = []) Create a new index
@@ -59,7 +59,7 @@ use JayI\Stretch\Domains\Query\Contracts\QueryBuilderContract;
  * @method static array getTask(string $id) Get the status of an async task
  * @method static array fieldCaps(string $index, array $fields) Run a _field_caps request
  *
- * @see \JayI\Stretch\Stretch
+ * @see \RefactorCircus\Stretch\Stretch
  */
 class Stretch extends Facade
 {
