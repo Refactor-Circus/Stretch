@@ -37,3 +37,7 @@ Source code is reorganised into domain modules under `src/Domains/{Connection,Qu
 ### Added
 
 - `RefactorCircus\Stretch\Domains\DomainServiceProvider`, `Domains\Connection\ConnectionServiceProvider` and `Domains\Query\QueryServiceProvider`, which now hold the container bindings previously registered directly by `StretchServiceProvider`.
+
+### Changed
+
+- Requires PHP 8.5 or later.
