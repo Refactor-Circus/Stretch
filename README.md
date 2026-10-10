@@ -1,3 +1,7 @@
+<p align="center">
+    <img src="art/icon.png" width="160" alt="Stretch icon">
+</p>
+
 # Stretch - Laravel Elasticsearch Query Builder
 
 A fluent, intuitive Laravel package for building Elasticsearch queries with comprehensive support for all major query types, aggregations, and advanced features.
