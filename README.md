@@ -2,6 +2,12 @@
 
 A fluent, intuitive Laravel package for building Elasticsearch queries with comprehensive support for all major query types, aggregations, and advanced features.
 
+## Requirements
+
+- PHP 8.3, 8.4 or 8.5
+- Laravel 12 or 13
+- The Elasticsearch PHP client 8 or 9
+
 ## Installation
 
 Install the package via Composer:

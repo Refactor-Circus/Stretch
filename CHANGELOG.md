@@ -40,4 +40,4 @@ Source code is reorganised into domain modules under `src/Domains/{Connection,Qu
 
 ### Changed
 
-- Requires PHP 8.5 or later.
+- Supports PHP 8.3 to 8.5 on Laravel 12 and 13, tested across that matrix in CI. PHP 8.3 installs Pest 4; PHP 8.4 and later can use Pest 5.

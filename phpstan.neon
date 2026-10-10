@@ -2,6 +2,10 @@
 # are loaded automatically via phpstan/extension-installer.
 parameters:
     level: 5
+    # Supported PHP range: flags functions and syntax newer than the floor.
+    phpVersion:
+        min: 80300
+        max: 80599
     paths:
         - src
         - tests
