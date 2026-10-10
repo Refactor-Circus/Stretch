@@ -1,6 +1,6 @@
 # Changelog
 
-All notable changes to `jayi/stretch` are documented in this file.
+All notable changes to `refactor-circus/stretch` are documented in this file.
 
 ## [Unreleased](https://github.com/Refactor-Circus/Stretch/commits/main)
 
