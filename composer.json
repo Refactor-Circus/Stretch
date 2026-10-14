@@ -73,6 +73,16 @@
         "pint:test": "vendor/bin/pint --test --preset laravel",
         "post-install-cmd": [
             "@php bin/install-git-hooks.php"
+        ],
+        "local:install": [
+            "@php bin/composer-local.php",
+            "@putenv COMPOSER=composer.local.json",
+            "@composer install"
+        ],
+        "local:update": [
+            "@php bin/composer-local.php",
+            "@putenv COMPOSER=composer.local.json",
+            "@composer update"
         ]
     },
     "config": {

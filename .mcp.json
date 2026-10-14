@@ -1,0 +1,50 @@
+{
+  "mcpServers": {
+    "tableplus-http-server": {
+      "type": "http",
+      "url": "http://127.0.0.1:51003/mcp",
+      "headers": {
+        "Authorization": "Bearer ${TABLEPLUS_HTTP_SERVER_TOKEN}"
+      }
+    },
+    "atlassian-rovo-mcp": {
+      "type": "http",
+      "url": "https://mcp.atlassian.com/v1/mcp",
+      "headers": {
+        "Authorization": "Basic ${ROVO_MCP_TOKEN}"
+      }
+    },
+    "context-7": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@upstash/context7-mcp@latest",
+        "--api-key",
+        "${CONTEXT7_API_KEY}"
+      ],
+      "transportType": "stdio"
+    },
+    "laravel-boost": {
+      "command": "php",
+      "args": [
+        "artisan",
+        "boost:mcp"
+      ]
+    },
+    "tinkerwell": {
+      "command": "/Applications/Tinkerwell.app/Contents/Resources/tinkerwell/mcp/tinkerwell-mcp-arm64",
+      "env": {
+        "TINKERWELL_PATH": "/Applications/Tinkerwell.app",
+        "DEBUG_ENABLED": "true"
+      }
+    },
+    "ray-app": {
+      "type": "http",
+      "url": "http://localhost:2411/mcp"
+    },
+    "phpstorm": {
+      "url": "http://127.0.0.1:64442/stream",
+      "type": "http"
+    }
+  }
+}

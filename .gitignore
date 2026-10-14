@@ -32,3 +32,5 @@ auth.json
 
 # macOS
 .DS_Store
+composer.local.json
+composer.local.lock
