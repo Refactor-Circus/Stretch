@@ -9,10 +9,7 @@
     },
     "atlassian-rovo-mcp": {
       "type": "http",
-      "url": "https://mcp.atlassian.com/v1/mcp",
-      "headers": {
-        "Authorization": "Basic ${ROVO_MCP_TOKEN}"
-      }
+      "url": "https://mcp.atlassian.com/v2/mcp"
     },
     "context-7": {
       "command": "npx",
