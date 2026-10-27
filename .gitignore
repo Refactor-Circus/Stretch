@@ -34,3 +34,9 @@ auth.json
 .DS_Store
 composer.local.json
 composer.local.lock
+
+# ringside generated files
+/docs/agent/standards.index.yml
+/docs/agent/standards.summary.md
+/.claude/skills/ring-master-*/
+/.claude/agents/ring-master-*.md
