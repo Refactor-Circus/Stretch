@@ -168,3 +168,32 @@ it('delete by query uses match_all when no query set', function () {
 
     expect($result['deleted'])->toBe(100);
 });
+
+it('puts an index template', function () {
+    $body = ['index_patterns' => ['orders-*'], 'template' => ['mappings' => ['dynamic' => 'strict']]];
+    $mockClient = m::mock(ClientContract::class);
+    $mockClient->shouldReceive('putIndexTemplate')->with('orders', $body)->once()->andReturn(['acknowledged' => true]);
+
+    expect((new Stretch($mockClient))->putIndexTemplate('orders', $body))->toBe(['acknowledged' => true]);
+});
+
+it('gets an index template', function () {
+    $mockClient = m::mock(ClientContract::class);
+    $mockClient->shouldReceive('getIndexTemplate')->with('orders')->once()->andReturn(['index_templates' => [['name' => 'orders']]]);
+
+    expect((new Stretch($mockClient))->getIndexTemplate('orders')['index_templates'][0]['name'])->toBe('orders');
+});
+
+it('checks whether an index template exists', function () {
+    $mockClient = m::mock(ClientContract::class);
+    $mockClient->shouldReceive('indexTemplateExists')->with('orders')->once()->andReturn(false);
+
+    expect((new Stretch($mockClient))->indexTemplateExists('orders'))->toBeFalse();
+});
+
+it('deletes an index template', function () {
+    $mockClient = m::mock(ClientContract::class);
+    $mockClient->shouldReceive('deleteIndexTemplate')->with('orders')->once()->andReturn(['acknowledged' => true]);
+
+    expect((new Stretch($mockClient))->deleteIndexTemplate('orders'))->toBe(['acknowledged' => true]);
+});
