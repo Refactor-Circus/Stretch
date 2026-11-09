@@ -635,6 +635,72 @@ class Stretch
     // ── Ingest Pipelines ────────────────────────────────────
 
     /**
+     * Create or replace a composable index template. Indices created later
+     * whose names match its `index_patterns` (including ones Elasticsearch
+     * auto-creates on a bulk write) get its settings, mappings and aliases.
+     *
+     * @param  string  $name  The template name
+     * @param  array  $body  The template definition
+     * @return array The Elasticsearch response
+     *
+     * @throws StretchException If the operation fails
+     *
+     * @example
+     * ```php
+     * Stretch::putIndexTemplate('orders', [
+     *     'index_patterns' => ['orders-*'],
+     *     'template' => [
+     *         'settings' => ['number_of_shards' => 1],
+     *         'mappings' => ['dynamic' => 'strict', 'properties' => [...]],
+     *         'aliases' => ['orders_search' => new \stdClass],
+     *     ],
+     * ]);
+     * ```
+     */
+    public function putIndexTemplate(string $name, array $body): array
+    {
+        return $this->client->putIndexTemplate($name, $body);
+    }
+
+    /**
+     * Get a composable index template by name.
+     *
+     * @param  string  $name  The template name
+     * @return array The Elasticsearch response (`index_templates` list)
+     *
+     * @throws StretchException If the operation fails
+     */
+    public function getIndexTemplate(string $name): array
+    {
+        return $this->client->getIndexTemplate($name);
+    }
+
+    /**
+     * Check whether a composable index template exists.
+     *
+     * @param  string  $name  The template name
+     * @return bool True if the template exists
+     */
+    public function indexTemplateExists(string $name): bool
+    {
+        return $this->client->indexTemplateExists($name);
+    }
+
+    /**
+     * Delete a composable index template. Indices it already created keep
+     * their settings and mappings.
+     *
+     * @param  string  $name  The template name
+     * @return array The Elasticsearch response
+     *
+     * @throws StretchException If the operation fails
+     */
+    public function deleteIndexTemplate(string $name): array
+    {
+        return $this->client->deleteIndexTemplate($name);
+    }
+
+    /**
      * Create or update an ingest pipeline.
      *
      * @param  string  $id  The pipeline ID

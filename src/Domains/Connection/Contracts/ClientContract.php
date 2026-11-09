@@ -322,6 +322,50 @@ interface ClientContract
      */
     public function deleteSynonymRule(string $setId, string $ruleId, array $options = []): array;
 
+    // ── Index Templates ─────────────────────────────────────
+
+    /**
+     * Create or replace a composable index template.
+     *
+     * @param  string  $name  The template name
+     * @param  array  $body  The template definition (index_patterns, template, priority, etc.)
+     * @return array The response
+     *
+     * @throws StretchException If the operation fails
+     */
+    public function putIndexTemplate(string $name, array $body): array;
+
+    /**
+     * Get a composable index template by name.
+     *
+     * @param  string  $name  The template name
+     * @return array The response (`index_templates` list)
+     *
+     * @throws StretchException If the operation fails
+     */
+    public function getIndexTemplate(string $name): array;
+
+    /**
+     * Check whether a composable index template exists.
+     *
+     * @param  string  $name  The template name
+     * @return bool True if the template exists
+     *
+     * @throws StretchException If the check fails for a reason other than a 404
+     */
+    public function indexTemplateExists(string $name): bool;
+
+    /**
+     * Delete a composable index template. Indices it already created keep
+     * their settings and mappings.
+     *
+     * @param  string  $name  The template name
+     * @return array The response
+     *
+     * @throws StretchException If the operation fails
+     */
+    public function deleteIndexTemplate(string $name): array;
+
     // ── Ingest Pipelines ────────────────────────────────────
 
     /**

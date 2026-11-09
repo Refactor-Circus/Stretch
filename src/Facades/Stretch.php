@@ -46,6 +46,10 @@ use RefactorCircus\Stretch\Domains\Query\Contracts\QueryBuilderContract;
  * @method static array putSynonymRule(string $setId, string $ruleId, array $rule, array $options = []) Create or update a synonym rule
  * @method static array getSynonymRule(string $setId, string $ruleId) Get a synonym rule
  * @method static array deleteSynonymRule(string $setId, string $ruleId, array $options = []) Delete a synonym rule
+ * @method static array putIndexTemplate(string $name, array $body) Create or replace a composable index template
+ * @method static array getIndexTemplate(string $name) Get a composable index template
+ * @method static bool indexTemplateExists(string $name) Check whether a composable index template exists
+ * @method static array deleteIndexTemplate(string $name) Delete a composable index template
  * @method static array putPipeline(string $id, array $body) Create or update an ingest pipeline
  * @method static array getPipeline(string $id) Get an ingest pipeline by ID
  * @method static array deletePipeline(string $id) Delete an ingest pipeline

@@ -607,6 +607,92 @@ class ElasticsearchClient implements ClientContract
     // ── Ingest Pipelines ────────────────────────────────────
 
     /**
+     * Create or replace a composable index template.
+     *
+     * @param  string  $name  The template name
+     * @param  array  $body  The template definition
+     * @return array The response
+     *
+     * @throws StretchException If the operation fails
+     */
+    public function putIndexTemplate(string $name, array $body): array
+    {
+        try {
+            return $this->client->indices()->putIndexTemplate([
+                'name' => $name,
+                'body' => $body,
+            ])->asArray();
+        } catch (Exception $exception) {
+            throw new StretchException("Failed to put index template '$name': {$exception->getMessage()}", (int) $exception->getCode(), $exception);
+        }
+    }
+
+    /**
+     * Get a composable index template by name.
+     *
+     * @param  string  $name  The template name
+     * @return array The response
+     *
+     * @throws StretchException If the operation fails
+     */
+    public function getIndexTemplate(string $name): array
+    {
+        try {
+            return $this->client->indices()->getIndexTemplate(['name' => $name])->asArray();
+        } catch (Exception $exception) {
+            throw new StretchException("Failed to get index template '$name': {$exception->getMessage()}", (int) $exception->getCode(), $exception);
+        }
+    }
+
+    /**
+     * Check whether a composable index template exists.
+     *
+     * @param  string  $name  The template name
+     * @return bool True if the template exists
+     *
+     * @throws StretchException If the check fails for a reason other than a 404
+     */
+    public function indexTemplateExists(string $name): bool
+    {
+        try {
+            return $this->performIndexTemplateExists($name);
+        } catch (ClientResponseException $exception) {
+            if ($exception->getCode() === 404) {
+                return false;
+            }
+
+            throw new StretchException("Failed to check index template '$name': {$exception->getMessage()}", (int) $exception->getCode(), $exception);
+        } catch (Exception $exception) {
+            throw new StretchException("Failed to check index template '$name': {$exception->getMessage()}", (int) $exception->getCode(), $exception);
+        }
+    }
+
+    /**
+     * Perform the template-exists request. Split out so tests can stub it.
+     */
+    protected function performIndexTemplateExists(string $name): bool
+    {
+        return $this->client->indices()->existsIndexTemplate(['name' => $name])->asBool();
+    }
+
+    /**
+     * Delete a composable index template.
+     *
+     * @param  string  $name  The template name
+     * @return array The response
+     *
+     * @throws StretchException If the operation fails
+     */
+    public function deleteIndexTemplate(string $name): array
+    {
+        try {
+            return $this->client->indices()->deleteIndexTemplate(['name' => $name])->asArray();
+        } catch (Exception $exception) {
+            throw new StretchException("Failed to delete index template '$name': {$exception->getMessage()}", (int) $exception->getCode(), $exception);
+        }
+    }
+
+    /**
      * Create or update an ingest pipeline.
      *
      * @param  string  $id  The pipeline ID

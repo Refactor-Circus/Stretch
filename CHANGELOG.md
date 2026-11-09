@@ -4,6 +4,10 @@ All notable changes to `refactor-circus/stretch` are documented in this file.
 
 ## [Unreleased](https://github.com/Refactor-Circus/Stretch/commits/main)
 
+### Added
+
+- Composable index templates: `putIndexTemplate()`, `getIndexTemplate()`, `indexTemplateExists()` and `deleteIndexTemplate()` on `Stretch` (and `ClientContract`). An index created later whose name matches a template's `index_patterns`, including one Elasticsearch auto-creates on a bulk write, gets the template's settings, mappings and aliases.
+
 ### Breaking
 
 - Moved to the Refactor Circus organisation: the package is now `refactor-circus/stretch` with the PHP namespace `RefactorCircus\Stretch` (it was `jayi/stretch` and `JayI\Stretch`). Update `composer.json` requirements and `use` statements. Old class names are not kept as aliases, so stored values written under them - polymorphic `*_type` columns, audit subjects, Pennant feature names - need updating to the new names.
